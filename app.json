@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "0a96c3fd-dbae-4bf2-87fb-dc23c72b3018"
+      }
+    },
+    "android": {
+      "package": "com.ngetich_expo2025.soccer_hub"
+    }
+  }
+}

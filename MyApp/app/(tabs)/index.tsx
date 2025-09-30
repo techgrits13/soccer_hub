@@ -3,7 +3,6 @@ import { View, FlatList, StyleSheet, Alert, Linking } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { NewsCard } from '@/components/news-card';
-import { useBookmarks } from '@/contexts/bookmarks-provider';
 
 // Define the type for a news item
 interface NewsItem {
@@ -24,7 +23,7 @@ export default function HomeScreen() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch('http://10.68.32.161:8000/api/feeds');
+        const response = await fetch(buildApiUrl('/api/feeds'));
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -61,6 +60,7 @@ export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="title" style={styles.header}>Latest Soccer News</ThemedText>
+      <AdBanner />
       <FlatList
         data={news}
         keyExtractor={(item, index) => `${item.link}-${index}`}

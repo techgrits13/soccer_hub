@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { View, StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { buildApiUrl } from '@/constants/api';
 
 interface Fixture {
   title: string;
@@ -48,7 +48,7 @@ export default function PredictionsScreen() {
     const fetchFixturesAndPredictions = async () => {
       setError(null);
       try {
-        const fixturesResponse = await fetch('http://10.68.32.161:8000/api/fixtures');
+        const fixturesResponse = await fetch(buildApiUrl('/api/fixtures'));
         if (!fixturesResponse.ok) {
           throw new Error(`Fixtures request failed with status ${fixturesResponse.status}`);
         }
@@ -67,7 +67,7 @@ export default function PredictionsScreen() {
         }
 
         const predictionPromises = fixturesData.map(async (fixture: Fixture) => {
-          const predictionResponse = await fetch('http://10.68.32.161:8000/api/predict', {
+          const predictionResponse = await fetch(buildApiUrl('/api/predict'), {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
