@@ -4,35 +4,28 @@
     "slug": "soccer-hub",
     "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
     "scheme": "soccerhub",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "backgroundColor": "#E6F4FE"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.ngetich_expo2025.soccerhub"
     },
     "web": {
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "output": "static"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
           "backgroundColor": "#ffffff",
           "dark": {
             "backgroundColor": "#000000"
@@ -40,14 +33,29 @@
         }
       ],
       [
-        "expo-ads-admob",
+        "expo-build-properties",
         {
-          "userTrackingPermission": "This app uses Google AdMob to show ads. Your data may be used for personalized advertising."
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35
+          }
         }
-      ]
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "android_app_id": "ca-app-pub-2559460320140731~5384057415",
+          "user_tracking_usage_description": "This identifier will be used to deliver personalized ads."
+        }
+      ],
+      "expo-web-browser"
     ],
     "extra": {
-      "apiBaseUrl": "https://your-backend-url.com"
+      "apiBaseUrl": "https://soccer-hub-3.onrender.com",
+      "router": {},
+      "eas": {
+        "projectId": "8aa37e28-6e28-4f66-9462-5e33effe2ecd"
+      }
     }
   }
 }
