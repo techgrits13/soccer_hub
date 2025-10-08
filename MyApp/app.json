@@ -33,15 +33,6 @@
         }
       ],
       [
-        "expo-build-properties",
-        {
-          "android": {
-            "compileSdkVersion": 35,
-            "targetSdkVersion": 35
-          }
-        }
-      ],
-      [
         "react-native-google-mobile-ads",
         {
           "android_app_id": "ca-app-pub-2559460320140731~5384057415",
